@@ -25,7 +25,7 @@ variable "subnet_name" {
 variable "vm_name" {
   description = "Name of vm"
   type        = string
-  default     = "VirtualMachine"
+  default     = "VM"
 }
 
 variable "vm_size" {

@@ -50,7 +50,7 @@ resource "azurerm_network_interface" "vm_network_interface" {
 
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "virtual_machine" {
-  name                  = "VirtualMachine"
+  name                  = "VM"
   resource_group_name   = "VirtualMachineGroup"
   location              = "UK South"
   size                  = "Standard_B1s"

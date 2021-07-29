@@ -9,7 +9,7 @@ variable "resource_location" {
   type        = list(string)
   default = [
     "UK South",
-    "North Europe"
+    "North Central US"
   ]
 }
 
@@ -35,7 +35,8 @@ variable "network_address" {
   description = "Network address space"
   type        = map(string)
   default = {
-    "UK South"     = "10.0.0.0/22"
-    "North Europe" = "10.1.0.0/22"
+    "UK South"         = "10.0.0.0/22"
+    "North Europe"     = "10.1.0.0/22"
+    "North Central US" = "10.2.0.0/22"
   }
 }
