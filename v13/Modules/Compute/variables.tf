@@ -9,11 +9,6 @@ variable "resource_location" {
   type        = string
 }
 
-variable "deployment" {
-  description = "Deployment identifier"
-  type        = string
-}
-
 variable "network_name" {
   description = "Name of network"
   type        = string

@@ -13,6 +13,12 @@ resource "azurerm_availability_set" "vm_availability_set" {
 
 # Create network adapter
 resource "azurerm_network_interface" "vm_network_interface" {
+
+  # Force explicit dependency to prevent race condition/deadlock in network module
+  depends_on = [
+    module.vm_network
+  ]
+
   count               = var.vm_instance_count
   name                = "${local.vm_name}${count.index + 1}"
   location            = azurerm_resource_group.vm_group.location
@@ -20,7 +26,7 @@ resource "azurerm_network_interface" "vm_network_interface" {
 
   ip_configuration {
     name                          = "ipconfig1"
-    subnet_id                     = azurerm_subnet.vm_subnet.id
+    subnet_id                     = module.vm_network.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
 }

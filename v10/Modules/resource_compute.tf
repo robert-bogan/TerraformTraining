@@ -1,7 +1,7 @@
 # Create availability set
 resource "azurerm_availability_set" "vm_availability_set" {
   count                       = local.platform_location_az_count < 1 ? 1 : 0
-  name                        = var.vm_name
+  name                        = local.vm_name
   location                    = azurerm_resource_group.vm_group.location
   resource_group_name         = azurerm_resource_group.vm_group.name
   platform_fault_domain_count = var.vm_fault_domain

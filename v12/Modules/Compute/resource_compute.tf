@@ -1,7 +1,7 @@
 # Create availability set
 resource "azurerm_availability_set" "vm_availability_set" {
   count                       = local.platform_location_az_count < 1 ? 1 : 0
-  name                        = var.vm_name
+  name                        = local.vm_name
   location                    = azurerm_resource_group.vm_group.location
   resource_group_name         = azurerm_resource_group.vm_group.name
   platform_fault_domain_count = var.vm_fault_domain
@@ -43,7 +43,7 @@ resource "azurerm_windows_virtual_machine" "virtual_machine" {
   availability_set_id = local.platform_location_az_count < 1 ? azurerm_availability_set.vm_availability_set[0].id : null
 
   # If there is more than one availability zone, select the AZ in iteration from the maximum count of availability zones
-  zone = local.platform_location_az_count > 1 ? (count.index + 1 % local.platform_location_az_count) : null
+  zone = local.platform_location_az_count > 1 ? (count.index % local.platform_location_az_count) + 1 : null
 
   os_disk {
     caching              = "ReadOnly"
