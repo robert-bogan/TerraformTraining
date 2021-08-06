@@ -10,7 +10,7 @@ Iterative Terraform training module
 |   v5    | Add a count argument to create multiple virtual machines, ensuring unique naming                                                                                |
 |   v6    | Add an availability set resource                                                                                                                                |
 |   v7    | Add VMs to the availability set, which must be done at creation                                                                                                 |
-|   v8    | Convert to a module so it's possible to use a for_each to deploy to multiple region for redundancy in a single configuration                                    |
+|   v8    | Convert to a module so it's possible to use a for_each to deploy to multiple regions for redundancy, in a single configuration                                  |
 |   v9    | Use of locals to calculate values, and use of region as a unique identifier (for VMs & resource groups)                                                         |
 |   v10   | Add a conditional expression to decide when to create an availability set                                                                                       |
 |   v11   | Add a conditional expression to decide when to add VMs to an availability zone, and ensuring each VM is in a different zone (up to maximum available)           |
