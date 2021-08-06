@@ -17,7 +17,7 @@ Iterative Terraform training module
 |   v12   | Modularise - Compute and Network now in separate modules                                                                                                        |
 |   v13   | Add more networking resources, including route tables and network security groups (NSGs) - unintentionally introduce deadlock                                   |
 |   v14   | Add explicit dependency for network (to remove deadlock of interfaces being associated at the same time as route tables/NSGs) & remove duplicate resource group |
-|   v15   | Create module to add data disks to virtual machine                                                                                                              |
+|   v15   | Create module to add multiple data disks to multiple virtual machines (with support for regions with and without availability zones)                            |
 |   v16   | Create module for Linux virtual machine                                                                                                                         |
 |   v17   | Use function to calculate and set static IP address for virtual machines                                                                                        |
 |   v18   | Create module for provisioning public IP address and public load balancer (with zonal support)                                                                  |
