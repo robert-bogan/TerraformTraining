@@ -23,3 +23,4 @@ Iterative Terraform training module
 |   v18   | Create module for provisioning public IP address and public load balancer (with zonal support)                                                                  |
 |   v19   | Add additional load balancer resources for backend configuration                                                                                                |
 |   v20   | Add health probe and load balancer rule                                                                                                                         |
+|   v21   | Addition of traffic manager for global load balancing (with traffic manager profile and endpoints)                                                              |
