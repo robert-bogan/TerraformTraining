@@ -24,3 +24,5 @@ Iterative Terraform training module
 |   v19   | Add additional load balancer resources for backend configuration                                                                                                |
 |   v20   | Add health probe and load balancer rule                                                                                                                         |
 |   v21   | Addition of traffic manager for global load balancing (with traffic manager profile and endpoints)                                                              |
+|   v22   | Addition of recovery services vault module, to allow for backups to be created                                                                                  |
+|   v23   | Creation of backup policies for VMs in the recovery services vault                                                                                              |
