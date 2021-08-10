@@ -23,7 +23,7 @@ Iterative Terraform training module
 |   v18   | Create module for provisioning public IP address and public load balancer (with zonal support)                                                                  |
 |   v19   | Add additional load balancer resources for backend configuration                                                                                                |
 |   v20   | Add health probe and load balancer rule                                                                                                                         |
-|   v21   | Creation of traffic manager profile for global load balancing                                                                                                   |
-|   v22   | Addition of traffic manager endpoints for the public IP of each regional load balancer                                                                          |
-|   v23   | Creation of recovery services vault module, to allow for backups to be created                                                                                  |
-|   v24   | Addition of backup policies for VMs in the recovery services vault                                                                                              |
+|   v21   | Creation of Traffic Manager profile for global load balancing                                                                                                   |
+|   v22   | Addition of Traffic Manager endpoints for the public IP of each regional load balancer                                                                          |
+|   v23   | Creation of Recovery Services Vault module, to allow for backups to be created                                                                                  |
+|   v24   | Addition of backup policies for VMs in the Recovery Services Vault                                                                                              |
