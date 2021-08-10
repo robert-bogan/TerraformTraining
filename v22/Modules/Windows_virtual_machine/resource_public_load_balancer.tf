@@ -1,6 +1,6 @@
 # Create public load dependencies
 module "public_load_balancer" {
-    depends_on = [
+  depends_on = [
     azurerm_windows_virtual_machine.virtual_machine
   ]
   source                = "../Public_load_balancer/"

@@ -10,7 +10,7 @@ variable "traffic_manager_endpoint_locations" {
   type        = list(string)
 }
 
-variable "traffic_manager_endpoint_public_ips" {
+variable "traffic_manager_endpoints" {
   description = "Traffic manager endpoint public ips"
   type        = any
 }
