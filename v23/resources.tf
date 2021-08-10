@@ -29,5 +29,5 @@ module "vm_deployment_recovery_services_vault" {
   recovery_services_name             = "${var.vm_name}-RSV"
   recovery_services_location         = each.value
   recovery_services_instance_count   = var.recovery_services_instance_count
-  recovery_services_virtual_machines = module.vm_deployment
+  recovery_services_virtual_machines = module.vm_deployment[each.value]
 }
