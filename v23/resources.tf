@@ -17,8 +17,8 @@ module "vm_deployment_traffic_manager" {
   vm_name                            = var.vm_name
   traffic_manager_name               = "${var.vm_name}-TM"
   traffic_manager_location           = var.traffic_manager_location
-  traffic_manager_endpoint_locations = var.resource_location
   traffic_manager_endpoints          = module.vm_deployment
+  traffic_manager_endpoint_locations = var.resource_location
 }
 
 # Create production recovery services vault
