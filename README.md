@@ -1,8 +1,11 @@
 # TerraformTraining
-Iterative Terraform training module
+Iterative Terraform training module with automated CI/CD Pipeline deployment
+## CI/CD Pipeline
 | Version |  main  |
 |:-------:| :----: |
-| v24 | [![Build Status](https://dev.azure.com/wesleytrust/TerraformTraining/_apis/build/status/ENV-P%3B%20TerraformTraining?branchName=main)](https://dev.azure.com/wesleytrust/TerraformTraining/_build/latest?definitionId=49&branchName=main) |
+| v25 | [![Build Status](https://dev.azure.com/wesleytrust/TerraformTraining/_apis/build/status/ENV-P%3B%20TerraformTraining?branchName=main)](https://dev.azure.com/wesleytrust/TerraformTraining/_build/latest?definitionId=49&branchName=main) |
+
+## Version history
 
 | Version | Description                                                                                                                                                     |
 | :-----: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,3 +33,4 @@ Iterative Terraform training module
 |   v22   | Addition of Traffic Manager endpoints for the public IP of each regional load balancer                                                                          |
 |   v23   | Creation of Recovery Services Vault module, to allow for backups to be created                                                                                  |
 |   v24   | Addition of backup policies for VMs in the Recovery Services Vault                                                                                              |
+|   v25   | Automate deployment in a CI/CD Pipeline with Azure DevOps using remote state                                                                                    |

@@ -17,7 +17,7 @@ stages:
       displayName: 'Terraform Initialise'
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/v24/'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/v25/'
         backendType: 'azurerm'
         backendServiceArm: '$(backendServiceArm)'
         ensureBackend: true
@@ -30,7 +30,7 @@ stages:
       displayName: 'Terraform Validate'
       inputs:
         command: 'validate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/v24/'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/v25/'
 - stage: Plan
   pool:
     vmImage: 'ubuntu-latest'

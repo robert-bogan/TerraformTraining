@@ -6,7 +6,7 @@ trigger:
     - main
   paths:
     include:
-      - v24/
+      - v25/
 
 # Do not trigger builds on PRs
 pr: none
