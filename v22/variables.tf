@@ -13,14 +13,6 @@ variable "resource_location" {
   ]
 }
 
-variable "recovery_services_location" {
-  description = "Location of recovery services"
-  type        = list(string)
-  default = [
-    "UK South",
-  ]
-}
-
 variable "vm_name" {
   description = "Name of vm"
   type        = string

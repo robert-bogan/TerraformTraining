@@ -39,6 +39,12 @@ variable "vm_instance_count" {
   default     = 1
 }
 
+variable "recovery_services_instance_count" {
+  description = "Number of vms to backup"
+  type        = string
+  default     = 1
+}
+
 variable "network_address" {
   description = "Network address space"
   type        = map(string)

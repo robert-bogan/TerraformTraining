@@ -17,14 +17,17 @@ module "vm_deployment_traffic_manager" {
   vm_name                            = var.vm_name
   traffic_manager_name               = "${var.vm_name}-TM"
   traffic_manager_location           = var.traffic_manager_location
-  traffic_manager_endpoint_locations = var.resource_location
   traffic_manager_endpoints          = module.vm_deployment
+  traffic_manager_endpoint_locations = var.resource_location
 }
 
 # Create production recovery services vault
 module "vm_deployment_recovery_services_vault" {
-  for_each                   = toset(var.recovery_services_location)
-  source                     = "./Modules/Recovery_services_vault"
-  recovery_services_name     = "${var.vm_name}-RSV"
-  recovery_services_location = each.value
+  for_each                           = toset(var.recovery_services_location)
+  source                             = "./Modules/Recovery_services_vault"
+  vm_name                            = var.vm_name
+  recovery_services_name             = "${var.vm_name}-RSV"
+  recovery_services_location         = each.value
+  recovery_services_instance_count   = var.recovery_services_instance_count
+  recovery_services_virtual_machines = module.vm_deployment[each.value]
 }

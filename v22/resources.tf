@@ -20,11 +20,3 @@ module "vm_deployment_traffic_manager" {
   traffic_manager_endpoint_locations = var.resource_location
   traffic_manager_endpoints          = module.vm_deployment
 }
-
-# Create production recovery services vault
-module "vm_deployment_recovery_services_vault" {
-  for_each                   = toset(var.recovery_services_location)
-  source                     = "./Modules/Recovery_services_vault"
-  recovery_services_name     = "${var.vm_name}-RSV"
-  recovery_services_location = each.value
-}
