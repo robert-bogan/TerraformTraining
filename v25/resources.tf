@@ -1,4 +1,4 @@
-module "vm_deployment" {
+/* module "vm_deployment" {
   for_each           = toset(var.resource_location)
   source             = "./Modules/Linux_virtual_machine"
   vm_name            = var.vm_name
@@ -27,4 +27,4 @@ module "vm_deployment_recovery_services_vault" {
   recovery_services_location         = each.value
   recovery_services_instance_count   = var.recovery_services_instance_count
   recovery_services_virtual_machines = module.vm_deployment[each.value]
-}
+} */
