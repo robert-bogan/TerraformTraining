@@ -1,5 +1,8 @@
 # TerraformTraining
 Iterative Terraform training module
+| Version |  main  |
+|:-------:| :----: |
+| v24 | [![Build Status](https://dev.azure.com/wesleytrust/TerraformTraining/_apis/build/status/ENV-P%3B%20TerraformTraining?branchName=main)](https://dev.azure.com/wesleytrust/TerraformTraining/_build/latest?definitionId=49&branchName=main) |
 
 | Version | Description                                                                                                                                                     |
 | :-----: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
