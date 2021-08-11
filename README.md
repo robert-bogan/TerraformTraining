@@ -37,4 +37,4 @@ Iterative Terraform training module with automated CI/CD Pipeline deployment
 
 [pipeline-link]: https://dev.azure.com/wesleytrust/TerraformTraining/_build/latest?definitionId=49&branchName=main
 [pipeline-summary]: https://dev.azure.com/wesleytrust/TerraformTraining
-[github-link]: https://github.com/wesley-trust/TerraformConfig
+[github-link]: https://github.com/wesley-trust/TerraformTraining
