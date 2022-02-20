@@ -15,13 +15,13 @@ provider "azurerm" {
 
 # Create resource group
 resource "azurerm_resource_group" "vm_group" {
-  name     = "WebServices-rg"
+  name     = "WebServices"
   location = "UK South"
 }
 
 # Create virtual network
 resource "azurerm_virtual_network" "vm_network" {
-  name                = "WebServices-vnet"
+  name                = "WebServicesNetwork"
   address_space       = ["10.0.0.0/22"]
   resource_group_name = azurerm_resource_group.vm_group.name
   location            = azurerm_resource_group.vm_group.location

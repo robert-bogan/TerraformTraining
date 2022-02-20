@@ -15,23 +15,23 @@ provider "azurerm" {
 
 # Create resource group
 resource "azurerm_resource_group" "vm_group" {
-  name     = "WebServices-rg"
+  name     = "WebServices"
   location = "UK South"
 }
 
 # Create virtual network
 resource "azurerm_virtual_network" "vm_network" {
-  name                = "WebServices-vnet"
+  name                = "WebServicesNetwork"
   address_space       = ["10.0.0.0/22"]
-  resource_group_name = "WebServices-rg"
+  resource_group_name = "WebServices"
   location            = "UK South"
 }
 
 # Create network subnet
 resource "azurerm_subnet" "vm_subnet" {
   name                 = "WebServicesSubnet"
-  resource_group_name  = "WebServices-rg"
-  virtual_network_name = "WebServices-vnet"
+  resource_group_name  = "WebServices"
+  virtual_network_name = "WebServicesNetwork"
   address_prefixes     = ["10.0.0.0/24"]
 }
 
@@ -39,7 +39,7 @@ resource "azurerm_subnet" "vm_subnet" {
 resource "azurerm_network_interface" "vm_network_interface" {
   name                = "WebServices-ni"
   location            = "UK South"
-  resource_group_name = "WebServices-rg"
+  resource_group_name = "WebServices"
 
   ip_configuration {
     name                          = "ipconfig1"
@@ -51,7 +51,7 @@ resource "azurerm_network_interface" "vm_network_interface" {
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "virtual_machine" {
   name                  = "VM"
-  resource_group_name   = "WebServices-rg"
+  resource_group_name   = "WebServices"
   location              = "UK South"
   size                  = "Standard_B1s"
   admin_username        = "Wesley"

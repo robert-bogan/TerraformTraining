@@ -1,7 +1,7 @@
 variable "resource_group_name" {
   description = "Name of resource group"
   type        = string
-  default     = "WebServices-rg"
+  default     = "WebServices"
 }
 
 variable "resource_location" {
@@ -17,7 +17,7 @@ variable "deployment" {
 variable "network_name" {
   description = "Name of network"
   type        = string
-  default     = "WebServices-vnet"
+  default     = "WebServicesNetwork"
 }
 
 variable "subnet_name" {

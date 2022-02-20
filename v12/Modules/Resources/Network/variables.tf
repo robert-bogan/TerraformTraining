@@ -11,7 +11,7 @@ variable "resource_location" {
 variable "network_name" {
   description = "Name of network"
   type        = string
-  default     = "WebServices-vnet"
+  default     = "WebServicesNetwork"
 }
 
 variable "subnet_name" {
