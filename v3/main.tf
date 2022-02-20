@@ -85,7 +85,7 @@ resource "azurerm_windows_virtual_machine" "virtual_machine" {
 variable "resource_group_name" {
   description = "Name of resource group"
   type        = string
-  default     = "VirtualMachineGroup"
+  default     = "WebServices-rg"
 }
 
 variable "resource_location" {
@@ -97,13 +97,13 @@ variable "resource_location" {
 variable "network_name" {
   description = "Name of network"
   type        = string
-  default     = "VirtualMachineNetwork"
+  default     = "WebServices-vnet"
 }
 
 variable "subnet_name" {
   description = "Name of subnet"
   type        = string
-  default     = "VirtualMachineSubnet"
+  default     = "WebServicesSubnet"
 }
 
 variable "vm_name" {

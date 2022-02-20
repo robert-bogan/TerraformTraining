@@ -2,7 +2,7 @@
 variable "resource_group_name" {
   description = "Name of resource group"
   type        = string
-  default     = "VirtualMachineGroup"
+  default     = "WebServices-rg"
 }
 
 variable "traffic_manager_name" {

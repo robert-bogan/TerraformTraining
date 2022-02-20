@@ -15,13 +15,13 @@ provider "azurerm" {
 
 # Create resource group
 resource "azurerm_resource_group" "vm_group" {
-  name     = "VirtualMachineGroup"
+  name     = "WebServices-rg"
   location = "UK South"
 }
 
 # Create virtual network
 resource "azurerm_virtual_network" "vm_network" {
-  name                = "VirtualMachineNetwork"
+  name                = "WebServices-vnet"
   address_space       = ["10.0.0.0/22"]
   resource_group_name = azurerm_resource_group.vm_group.name
   location            = azurerm_resource_group.vm_group.location
@@ -29,7 +29,7 @@ resource "azurerm_virtual_network" "vm_network" {
 
 # Create network subnet
 resource "azurerm_subnet" "vm_subnet" {
-  name                 = "VirtualMachineSubnet"
+  name                 = "WebServicesSubnet"
   resource_group_name  = azurerm_resource_group.vm_group.name
   virtual_network_name = azurerm_virtual_network.vm_network.name
   address_prefixes     = ["10.0.0.0/24"]
@@ -37,7 +37,7 @@ resource "azurerm_subnet" "vm_subnet" {
 
 # Create network adapter
 resource "azurerm_network_interface" "vm_network_interface" {
-  name                = "VirtualMachineNetworkInterface"
+  name                = "WebServices-ni"
   location            = azurerm_resource_group.vm_group.location
   resource_group_name = azurerm_resource_group.vm_group.name
 

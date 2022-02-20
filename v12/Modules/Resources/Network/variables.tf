@@ -11,13 +11,13 @@ variable "resource_location" {
 variable "network_name" {
   description = "Name of network"
   type        = string
-  default     = "VirtualMachineNetwork"
+  default     = "WebServices-vnet"
 }
 
 variable "subnet_name" {
   description = "Name of subnet"
   type        = string
-  default     = "VirtualMachineSubnet"
+  default     = "WebServicesSubnet"
 }
 
 variable "network_address" {
