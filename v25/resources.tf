@@ -1,6 +1,6 @@
 /* module "vm_deployment" {
   for_each           = toset(var.resource_location)
-  source             = "./Modules/Linux_virtual_machine"
+  source             = "./Modules/Deployments/Linux_virtual_machine"
   vm_name            = var.vm_name
   vm_instance_count  = var.vm_instance_count
   vm_size            = var.vm_size
@@ -11,7 +11,7 @@
 }
 
 module "vm_deployment_traffic_manager" {
-  source                             = "./Modules/Traffic_manager"
+  source                             = "./Modules/Deployments/Traffic_manager"
   vm_name                            = var.vm_name
   traffic_manager_name               = "${var.vm_name}-TM"
   traffic_manager_location           = var.traffic_manager_location
@@ -21,7 +21,7 @@ module "vm_deployment_traffic_manager" {
 
 module "vm_deployment_recovery_services_vault" {
   for_each                           = toset(var.recovery_services_location)
-  source                             = "./Modules/Recovery_services_vault"
+  source                             = "./Modules/Deployments/Recovery_services_vault"
   vm_name                            = var.vm_name
   recovery_services_name             = "${var.vm_name}-RSV"
   recovery_services_location         = each.value

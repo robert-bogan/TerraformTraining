@@ -1,7 +1,7 @@
 # Create production virtual machines
 module "vm_deployment" {
   for_each           = toset(var.resource_location)
-  source             = "./Modules/Linux_virtual_machine"
+  source             = "./Modules/Deployments/Linux_virtual_machine"
   vm_name            = var.vm_name
   vm_instance_count  = var.vm_instance_count
   vm_size            = var.vm_size
