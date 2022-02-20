@@ -82,7 +82,7 @@ resource "azurerm_windows_virtual_machine" "virtual_machine" {
 
 }
 
-variable "resource_group" {
+variable "resource_group_name" {
   description = "Name of resource group"
   type        = string
   default     = "VirtualMachineGroup"
