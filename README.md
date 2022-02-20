@@ -3,7 +3,7 @@ Iterative Terraform training module with automated CI/CD Pipeline deployment
 ## [Infrastructure as Code: CI/CD Pipeline][pipeline-summary]
 | Version |                                                                         main                                                                          |
 | :-----: | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   v25   | [![Build Status](https://dev.azure.com/wesleytrust/TerraformTraining/_apis/build/status/ENV-P%3B%20TerraformTraining?branchName=main)][pipeline-link] |
+|   v27   | [![Build Status](https://dev.azure.com/wesleytrust/TerraformTraining/_apis/build/status/ENV-P%3B%20TerraformTraining?branchName=main)][pipeline-link] |
 
 ## [Version history][github-link]
 
