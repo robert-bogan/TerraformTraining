@@ -9,5 +9,5 @@ module "data_disks" {
   resource_zone               = local.platform_location_az_count > 1 ? (count.index % local.platform_location_az_count) + 1 : null
   vm_data_disk_count          = var.vm_data_disk_count
   vm_data_disk_size           = var.vm_data_disk_size
-  resource_virtual_machine_id = element(azurerm_windows_virtual_machine.virtual_machine.*.id, count.index)
+  resource_virtual_machine_id = azurerm_windows_virtual_machine.virtual_machine[count.index].id
 }

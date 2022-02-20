@@ -45,7 +45,7 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
 
   # Get all of the interface ids, and select the correct one for this iteration
   network_interface_ids = [
-    element(azurerm_network_interface.vm_network_interface.*.id, count.index),
+    azurerm_network_interface.vm_network_interface[count.index].id,
   ]
 
   # If there is less than one availability zone, then specify availability set id
