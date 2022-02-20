@@ -1,7 +1,7 @@
 # Create availability set
 resource "azurerm_availability_set" "vm_availability_set" {
   count                       = local.platform_location_az_count < 1 ? 1 : 0
-  name                        = local.vm_name
+  name                        = local.resource_name
   location                    = azurerm_resource_group.vm_group.location
   resource_group_name         = azurerm_resource_group.vm_group.name
   platform_fault_domain_count = var.vm_fault_domain
@@ -19,28 +19,27 @@ resource "azurerm_network_interface" "vm_network_interface" {
     module.vm_network
   ]
 
-  count               = var.vm_instance_count
-  name                = "${local.vm_name}${count.index + 1}"
+  count               = var.resource_instance_count
+  name                = "${local.resource_name}${count.index + 1}"
   location            = azurerm_resource_group.vm_group.location
   resource_group_name = azurerm_resource_group.vm_group.name
 
   ip_configuration {
     name                          = "ipconfig1"
     subnet_id                     = module.vm_network.subnet_id
-    private_ip_address_allocation = "static"
-    private_ip_address            = cidrhost(var.network_address, 4 + count.index)
+    private_ip_address_allocation = "Dynamic"
   }
 }
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "virtual_machine" {
-  count                           = var.vm_instance_count
-  name                            = "${local.vm_name}${count.index + 1}"
+  count                           = var.resource_instance_count
+  name                            = "${local.resource_name}${count.index + 1}"
   resource_group_name             = azurerm_resource_group.vm_group.name
   location                        = azurerm_resource_group.vm_group.location
-  size                            = var.vm_size
+  size                            = var.resource_size
   admin_username                  = var.admin_username
-  admin_password                  = var.admin_password
+  admin_password                  = random_password.vm_password[count.index].result
   disable_password_authentication = false
 
   # Get all of the interface ids, and select the correct one for this iteration

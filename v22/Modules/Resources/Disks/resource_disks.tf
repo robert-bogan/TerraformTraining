@@ -1,7 +1,7 @@
 # Create managed disk
 resource "azurerm_managed_disk" "disks" {
   count                = var.vm_data_disk_count
-  name                 = "${var.vm_name}_DataDisk_${count.index + 1}"
+  name                 = "${var.resource_name}_DataDisk_${count.index + 1}"
   location             = var.resource_location
   resource_group_name  = var.resource_group_name
   storage_account_type = "Standard_LRS"

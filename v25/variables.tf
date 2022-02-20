@@ -21,26 +21,20 @@ variable "recovery_services_location" {
   ]
 }
 
-variable "vm_name" {
+variable "resource_name" {
   description = "Name of vm"
   type        = string
   default     = "WEB"
 }
 
-variable "vm_size" {
+variable "resource_size" {
   description = "Size of vm"
   type        = string
   default     = "Standard_B1s"
 }
 
-variable "vm_instance_count" {
+variable "resource_instance_count" {
   description = "Number of vms to deploy"
-  type        = string
-  default     = 1
-}
-
-variable "recovery_services_instance_count" {
-  description = "Number of vms to backup"
   type        = string
   default     = 1
 }

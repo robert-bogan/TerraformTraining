@@ -1,6 +1,6 @@
 # Create network adapter
 resource "azurerm_network_interface" "vm_network_interface" {
-  name                = "${var.vm_name}-ni"
+  name                = "${var.resource_name}-ni"
   location            = azurerm_resource_group.vm_group.location
   resource_group_name = azurerm_resource_group.vm_group.name
 
@@ -13,10 +13,10 @@ resource "azurerm_network_interface" "vm_network_interface" {
 
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "virtual_machine" {
-  name                  = var.vm_name
+  name                  = var.resource_name
   resource_group_name   = azurerm_resource_group.vm_group.name
   location              = azurerm_resource_group.vm_group.location
-  size                  = var.vm_size
+  size                  = var.resource_size
   admin_username        = var.admin_username
   admin_password        = var.admin_password
   license_type          = "Windows_Server"

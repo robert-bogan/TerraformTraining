@@ -1,6 +1,5 @@
 locals {
-  location_prefix            = replace(var.resource_location, "/[a-z[:space:]]/", "")
-  resource_group_name        = "${var.resource_group_name}-${local.location_prefix}"
-  vm_name                    = "${var.vm_name}-${local.location_prefix}"
-  platform_location_az_count = lookup(var.platform_location_az, var.resource_location, null)
+  location_prefix     = replace(var.resource_location, "/[a-z[:space:]]/", "")
+  resource_group_name = "${var.resource_group_name}-${replace(var.resource_location, "/[a-z[:space:]]/", "")}"
+  resource_name       = "${var.resource_name}-${local.location_prefix}"
 }

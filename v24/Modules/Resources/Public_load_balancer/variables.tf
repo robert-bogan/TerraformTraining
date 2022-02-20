@@ -1,5 +1,5 @@
 # Required resource variables
-variable "vm_name" {
+variable "resource_name" {
   description = "Name of vm"
   type        = string
 }
@@ -29,7 +29,7 @@ variable "network_address" {
   type        = string
 }
 
-variable "vm_instance_count" {
+variable "resource_instance_count" {
   description = "Number of vms to deploy"
   type        = string
 }

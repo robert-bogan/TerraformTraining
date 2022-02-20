@@ -22,13 +22,13 @@ variable "subnet_name" {
   default     = "WebServicesSubnet"
 }
 
-variable "vm_name" {
+variable "resource_name" {
   description = "Name of vm"
   type        = string
   default     = "WEB"
 }
 
-variable "vm_size" {
+variable "resource_size" {
   description = "Size of vm"
   type        = string
   default     = "Standard_B1s"

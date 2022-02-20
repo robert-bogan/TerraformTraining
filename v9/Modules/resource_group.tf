@@ -1,5 +1,5 @@
 # Create resource group
 resource "azurerm_resource_group" "vm_group" {
-  name     = local.resource_group_name
+  name     = "${var.resource_group_name}${var.deployment}"
   location = var.resource_location
 }

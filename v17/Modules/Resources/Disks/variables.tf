@@ -1,5 +1,5 @@
 # Required resource variables
-variable "vm_name" {
+variable "resource_name" {
   description = "Desired name for the provisioned resources"
   type        = string
 }

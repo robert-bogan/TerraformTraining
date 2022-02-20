@@ -1,6 +1,6 @@
 # Create availability set
-resource "azurerm_availability_set" "vm_availability_set" {
-  name                        = var.vm_name
+resource "azurerm_availability_set" "availability_set" {
+  name                        = var.resource_name
   location                    = azurerm_resource_group.vm_group.location
   resource_group_name         = azurerm_resource_group.vm_group.name
   platform_fault_domain_count = var.vm_fault_domain
@@ -12,8 +12,8 @@ resource "azurerm_availability_set" "vm_availability_set" {
 
 # Create network adapter
 resource "azurerm_network_interface" "vm_network_interface" {
-  count               = var.vm_instance_count
-  name                = "${var.vm_name}${count.index + 1}"
+  count               = var.resource_instance_count
+  name                = "${var.resource_name}${count.index + 1}"
   location            = azurerm_resource_group.vm_group.location
   resource_group_name = azurerm_resource_group.vm_group.name
 
@@ -26,19 +26,17 @@ resource "azurerm_network_interface" "vm_network_interface" {
 
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "virtual_machine" {
-  count               = var.vm_instance_count
-  name                = "${var.vm_name}${count.index + 1}"
+  count               = var.resource_instance_count
+  name                = "${var.resource_name}${count.index + 1}"
   resource_group_name = azurerm_resource_group.vm_group.name
   location            = azurerm_resource_group.vm_group.location
-  size                = var.vm_size
+  size                = var.resource_size
   admin_username      = var.admin_username
-  admin_password      = var.admin_password
+  admin_password      = random_password.vm_password[count.index].result
   license_type        = "Windows_Server"
   network_interface_ids = [
     azurerm_network_interface.vm_network_interface[count.index].id,
   ]
-
-  availability_set_id = azurerm_availability_set.vm_availability_set.id
 
   os_disk {
     caching              = "ReadOnly"

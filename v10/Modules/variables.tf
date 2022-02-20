@@ -21,12 +21,12 @@ variable "subnet_name" {
   default     = "WebServicesSubnet"
 }
 
-variable "vm_name" {
+variable "resource_name" {
   description = "Name of vm"
   type        = string
 }
 
-variable "vm_size" {
+variable "resource_size" {
   description = "Size of vm"
   type        = string
 }
@@ -49,7 +49,7 @@ variable "vm_sku" {
   default     = "2019-Datacenter-smalldisk"
 }
 
-variable "vm_instance_count" {
+variable "resource_instance_count" {
   description = "Number of vms to deploy"
   type        = string
 }
@@ -60,28 +60,10 @@ variable "vm_fault_domain" {
   default     = 2
 }
 
-variable "platform_location_az" {
-  description = "Number of availability zones in the location"
-  type        = map(string)
-  default = {
-    "UK South"         = 3
-    "North Europe"     = 3
-    "West Europe"      = 3
-    "North Central US" = 0
-  }
-}
-
 variable "admin_username" {
   description = "Desired username for the provisioned resources"
   type        = string
   default     = "Wesley"
-}
-
-variable "admin_password" {
-  description = "Desired password for the provisioned resources"
-  type        = string
-  default     = "sdfhq48SDFdf224sf"
-  sensitive   = true
 }
 
 variable "vm_environment" {

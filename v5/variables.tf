@@ -22,13 +22,13 @@ variable "subnet_name" {
   default     = "WebServicesSubnet"
 }
 
-variable "vm_name" {
+variable "resource_name" {
   description = "Name of vm"
   type        = string
   default     = "WEB"
 }
 
-variable "vm_size" {
+variable "resource_size" {
   description = "Size of vm"
   type        = string
   default     = "Standard_B1s"
@@ -52,23 +52,10 @@ variable "vm_sku" {
   default     = "2019-Datacenter-smalldisk"
 }
 
-variable "vm_instance_count" {
-  description = "Number of vms to deploy"
-  type        = string
-  default     = 2
-}
-
 variable "admin_username" {
   description = "Desired username for the provisioned resources"
   type        = string
   default     = "Wesley"
-}
-
-variable "admin_password" {
-  description = "Desired password for the provisioned resources"
-  type        = string
-  default     = "sdfhq48SDFdf224sf"
-  sensitive   = true
 }
 
 variable "vm_environment" {
@@ -87,4 +74,10 @@ variable "subnet_address" {
   description = "Subnet prefix"
   type        = string
   default     = "10.0.0.0/24"
+}
+
+variable "vm_network_interface" {
+  description = "Name of vm ni"
+  type        = string
+  default     = "Production"
 }
