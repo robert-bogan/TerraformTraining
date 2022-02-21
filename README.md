@@ -20,7 +20,7 @@ Iterative Terraform training module with automated CI/CD Pipeline deployment
 |   v9    | Convert to a module so it's possible to use a for_each to deploy to multiple regions for redundancy, in a single configuration                        |
 |   v10   | Use of locals to calculate values, and use of region as a unique identifier (for VMs & resource groups)                                               |
 |   v11   | Add a conditional expression to decide when to create an availability set                                                                             |
-|   v13   | Add a conditional expression to decide when to add VMs to an availability zone, and ensuring each VM is in a different zone (up to maximum available) |
+|   v12   | Add a conditional expression to decide when to add VMs to an availability zone, and ensuring each VM is in a different zone (up to maximum available) |
 |   v13   | Modularise - Compute and Network now in separate modules                                                                                              |
 |   v14   | Add more networking resources, including route tables and network security groups (NSGs) - introduce possible resource deadlock                       |
 |   v15   | Add explicit dependency for network (to remove deadlock of interfaces being associated at the same time as route tables/NSGs)                         |
