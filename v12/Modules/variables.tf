@@ -87,3 +87,8 @@ variable "network_address" {
   description = "Network address space"
   type        = string
 }
+
+variable "deployment" {
+  description = "Desired deployment identifier of the collection of provisioned resources"
+  type        = string
+}
