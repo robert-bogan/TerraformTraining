@@ -63,7 +63,7 @@ stages:
       vmImage: 'ubuntu-latest'
     jobs:
     
-      - job: Test
+      - job: Test2
         displayName: 'Test'
         continueOnError: false
 
