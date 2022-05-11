@@ -32,7 +32,7 @@ func TestApplySingleInstanceSingleRegion(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 }
 
-func TestApplyMultiInstanceSingleRegion(t *testing.T) {
+/* func TestApplyMultiInstanceSingleRegion(t *testing.T) {
 	t.Parallel()
 
 	// Define variables
@@ -84,4 +84,4 @@ func TestApplyMultiInstanceMultiRegion(t *testing.T) {
 
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformOptions)
-}
+} */

@@ -1,0 +1,9 @@
+# Define global variables
+variables:
+- template: Variables/global.yml
+
+# Define stages
+stages:
+
+- template: Stages/unit.yml
+- template: Stages/integration.yml

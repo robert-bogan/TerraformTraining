@@ -1,0 +1,19 @@
+stages:
+- stage: Integration
+  condition: or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual'))
+  pool:
+    vmImage: 'ubuntu-latest'
+  jobs:
+  
+  - job: Test
+    displayName: 'Test'
+    continueOnError: false
+    steps:
+
+    # Bootstrap steps
+    - template: ../Steps/bootstrap.yml
+
+    # Test specific step
+    - template: ../Steps/go.yml
+      parameters:
+        arguments: '-v integration_test.go'

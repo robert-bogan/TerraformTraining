@@ -29,7 +29,7 @@ func TestPlanSingleInstanceSingleRegion(t *testing.T) {
 	terraform.InitAndPlan(t, terraformOptions)
 }
 
-func TestPlanMultiInstanceSingleRegion(t *testing.T) {
+/* func TestPlanMultiInstanceSingleRegion(t *testing.T) {
 	t.Parallel()
 
 	// Define variables
@@ -75,4 +75,4 @@ func TestPlanMultiInstanceMultiRegion(t *testing.T) {
 
 	// Run `terraform init` and `terraform plan`. Fail the test if there are any errors.
 	terraform.InitAndPlan(t, terraformOptions)
-}
+} */
