@@ -63,9 +63,10 @@ stages:
       vmImage: 'ubuntu-latest'
     jobs:
     
-      - job: Test2
+      - job: Test
         displayName: 'Test'
         continueOnError: false
+        steps:
 
         # Install Terraform
         - task: TerraformInstaller@0
