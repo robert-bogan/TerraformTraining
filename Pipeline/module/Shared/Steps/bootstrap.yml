@@ -28,4 +28,4 @@ steps:
     command: 'custom'
     customCommand: 'mod'
     arguments: 'tidy'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/v12//v12/Modules/tests'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/v12/Modules/tests'
