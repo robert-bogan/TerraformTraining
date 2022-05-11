@@ -98,15 +98,15 @@ stages:
             arguments: 'tidy'
             workingDirectory: '$(System.DefaultWorkingDirectory)/v12/Modules/tests'
 
-          # Run Go Test
-          - task: Go@0
-            displayName: 'Run tests'
-            inputs:
-              command: 'test'
-              arguments: '-timeout 1h -v integration_test.go'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/v12/Modules/tests'
-            env:
-                ARM_TENANT_ID: $(TenantId)
-                ARM_CLIENT_ID: $(ServicePrincipalId)
-                ARM_CLIENT_SECRET: $(ServicePrincipalKey)
-                ARM_SUBSCRIPTION_ID: $(SubscriptionId)
+        # Run Go Test
+        - task: Go@0
+          displayName: 'Run tests'
+          inputs:
+            command: 'test'
+            arguments: '-timeout 1h -v integration_test.go'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/v12/Modules/tests'
+          env:
+              ARM_TENANT_ID: $(TenantId)
+              ARM_CLIENT_ID: $(ServicePrincipalId)
+              ARM_CLIENT_SECRET: $(ServicePrincipalKey)
+              ARM_SUBSCRIPTION_ID: $(SubscriptionId)
