@@ -18,7 +18,7 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'mod'
-    arguments: 'init $(Module)'
+    arguments: 'init module'
     workingDirectory: '$(System.DefaultWorkingDirectory)/v12/Modules/tests'
 
 # Add module dependencies
