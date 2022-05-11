@@ -6,7 +6,7 @@ steps:
   inputs:
     command: 'test'
     arguments: '-timeout 1h ${{ parameters.arguments }}'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Deployments/$(Module)/tests'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/v12/Modules/tests'
   env:
       ARM_TENANT_ID: $(TenantId)
       ARM_CLIENT_ID: $(ServicePrincipalId)
