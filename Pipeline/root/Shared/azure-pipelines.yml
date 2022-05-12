@@ -54,7 +54,7 @@ stages:
       displayName: 'Configure Regula'
     - bash: |
         # Scan files with Regula
-        regula run $(System.DefaultWorkingDirectory)/v25/ -i $(System.DefaultWorkingDirectory)/v25/rules/ -s off
+        regula run $(System.DefaultWorkingDirectory)/v25/ -i $(System.DefaultWorkingDirectory)/v25/rules/ -s critical
       name: 'RegulaScan'
       displayName: 'Scan Terraform files with Regula'
 - stage: Plan
