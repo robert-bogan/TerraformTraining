@@ -71,7 +71,7 @@ stages:
         # Scan with Regula
         - bash: |
             # Scan files with Regula
-            regula run $(System.DefaultWorkingDirectory)/v12/ -i $(System.DefaultWorkingDirectory)/v12/rules/ -s critical
+            regula run $(System.DefaultWorkingDirectory)/v12/ -s critical
           name: 'RegulaScan'
           displayName: 'Scan Terraform files with Regula'
 
