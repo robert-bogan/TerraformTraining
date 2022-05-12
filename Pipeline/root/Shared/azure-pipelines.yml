@@ -26,6 +26,11 @@ stages:
         backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
         backendAzureRmContainerName: '$(backendAzureRmContainerName)'
         backendAzureRmKey: '$(backendAzureRmKey)'
+    - task: TerraformCLI@0
+      displayName: 'Terraform Validate'
+      inputs:
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/v25/'
     - task: DownloadGitHubRelease@0
       displayName: 'Download Regula'
       inputs:
@@ -51,14 +56,9 @@ stages:
         # Scan files in current directory
         regula run $(System.DefaultWorkingDirectory)/v25/ -i $(System.DefaultWorkingDirectory)/v25/rules/
         # Scan files in subdirectory
-        regula run $(System.DefaultWorkingDirectory)/v25/*/ -i $(System.DefaultWorkingDirectory)/v25//rules/
+        regula run $(System.DefaultWorkingDirectory)/v25/*/ -i $(System.DefaultWorkingDirectory)/v25/rules/
       name: 'RegulaScan'
-      displayName: 'Scan with Regula'
-    - task: TerraformCLI@0
-      displayName: 'Terraform Validate'
-      inputs:
-        command: 'validate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/v25/'
+      displayName: 'Scan Terraform files with Regula'
 - stage: Plan
   pool:
     vmImage: 'ubuntu-latest'
@@ -97,6 +97,34 @@ stages:
         environmentServiceName: '$(backendServiceArm)'
         publishPlanResults: 'terraform.tfplan'
         commandOptions: '-out=$(Pipeline.Workspace)/Output/terraform.tfplan -detailed-exitcode'
+    - task: DownloadGitHubRelease@0
+      displayName: 'Download Regula'
+      inputs:
+        connection: 'wesley-trust'
+        userRepository: 'fugue/regula'
+        defaultVersionType: 'latest'
+        itemPattern: '*Linux_x86_64.tar.gz'
+        downloadPath: '$(System.ArtifactsDirectory)/regula' 
+    - bash: |
+        # Change to directory containing regula download
+        cd $(System.ArtifactsDirectory)/regula
+        # Add filename to variable
+        REGULA=$(ls -p | grep -v /)
+        # Extract archive
+        tar -xf $REGULA
+        # Remove archive
+        rm --f $REGULA
+        # Add Regula to PATH
+        echo "##vso[task.prependpath]$(System.ArtifactsDirectory)/regula"
+      name: 'ConfigureRegula'
+      displayName: 'Configure Regula'
+    - bash: |
+        # Generate JSON plan
+        terraform show -json $(Pipeline.Workspace)/Output/terraform.tfplan >$(System.ArtifactsDirectory)/plan.json
+        # Scan plan
+        regula run $(System.ArtifactsDirectory)/plan.json -i $(System.DefaultWorkingDirectory)/v25/rules/
+      name: 'RegulaScan'
+      displayName: 'Scan Terraform Plan with Regula'
     - bash: |
         if [ "$TERRAFORM_PLAN_HAS_CHANGES" = true ] ; then
           echo "##vso[task.setvariable variable=ShouldRun;isOutput=true]true"
