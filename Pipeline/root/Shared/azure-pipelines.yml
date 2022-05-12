@@ -48,8 +48,8 @@ stages:
       name: 'ConfigureRegula'
       displayName: 'Configure Regula'
     - bash: |
-        cd $(System.DefaultWorkingDirectory)/v25/
-        regula run -i rules/
+        regula run $(System.DefaultWorkingDirectory)/v25/ -i rules/
+        regula run $(System.DefaultWorkingDirectory)/v25/*/ -i rules/
       name: 'RegulaScan'
       displayName: 'Scan with Regula'
     - task: TerraformCLI@0
