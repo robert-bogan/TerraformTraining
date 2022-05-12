@@ -119,6 +119,8 @@ stages:
       name: 'ConfigureRegula'
       displayName: 'Configure Regula'
     - bash: |
+        # Set working directory
+        cd $(System.DefaultWorkingDirectory)/v25/
         # Generate JSON plan
         terraform show -json $(Pipeline.Workspace)/Output/terraform.tfplan >$(System.ArtifactsDirectory)/plan.json
         # Scan plan
