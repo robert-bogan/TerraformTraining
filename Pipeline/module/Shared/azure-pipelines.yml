@@ -8,11 +8,14 @@ stages:
     condition: ne(variables['Build.Reason'], 'PullRequest')
     pool:
       vmImage: 'ubuntu-latest'
-    jobs:
     
+    # Define jobs
+    jobs:
       - job: Test
         displayName: 'Test'
         continueOnError: false
+        
+        # Define steps
         steps:
 
         # Install Terraform
@@ -115,11 +118,14 @@ stages:
     condition: or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual'))
     pool:
       vmImage: 'ubuntu-latest'
-    jobs:
     
+    # Define jobs
+    jobs:
       - job: Test
         displayName: 'Test'
         continueOnError: false
+        
+        # Define steps
         steps:
 
         # Install Terraform
