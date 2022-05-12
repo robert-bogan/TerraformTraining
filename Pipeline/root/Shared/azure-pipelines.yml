@@ -53,10 +53,8 @@ stages:
       name: 'ConfigureRegula'
       displayName: 'Configure Regula'
     - bash: |
-        # Scan files in current directory
-        regula run $(System.DefaultWorkingDirectory)/v25/ -i $(System.DefaultWorkingDirectory)/v25/rules/
-        # Scan files in subdirectory
-        regula run $(System.DefaultWorkingDirectory)/v25/*/ -i $(System.DefaultWorkingDirectory)/v25/rules/
+        # Scan files with Regula
+        regula run $(System.DefaultWorkingDirectory)/v25/ -i $(System.DefaultWorkingDirectory)/v25/rules/ -s high
       name: 'RegulaScan'
       displayName: 'Scan Terraform files with Regula'
 - stage: Plan
@@ -124,7 +122,7 @@ stages:
         # Generate JSON plan
         terraform show -json $(Pipeline.Workspace)/Output/terraform.tfplan >$(System.ArtifactsDirectory)/plan.json
         # Scan plan
-        regula run $(System.ArtifactsDirectory)/plan.json -i $(System.DefaultWorkingDirectory)/v25/rules/
+        regula run $(System.ArtifactsDirectory)/plan.json -i $(System.DefaultWorkingDirectory)/v25/rules/ -s high
       name: 'RegulaScan'
       displayName: 'Scan Terraform Plan with Regula'
     - bash: |
