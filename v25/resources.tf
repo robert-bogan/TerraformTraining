@@ -1,4 +1,4 @@
-# Create production virtual machines
+/*  # Create production virtual machines
 module "vm_deployment" {
   for_each                = toset(var.resource_location)
   source                  = "./Modules/Deployments/Linux_virtual_machine"
@@ -27,4 +27,4 @@ module "vm_deployment_recovery_services_vault" {
   source                     = "./Modules/Deployments/Recovery_services_vault"
   recovery_services_name     = "${var.resource_name}-RSV"
   recovery_services_location = each.value
-}
+} */
